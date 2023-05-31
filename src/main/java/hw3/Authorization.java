@@ -1,15 +1,17 @@
+package hw3;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
 
 import java.util.concurrent.TimeUnit;
 
-public class LogOut {
-    public static void logOut() throws InterruptedException {
+public class Authorization {
+
+    public static void authorization() throws InterruptedException {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
@@ -46,14 +48,7 @@ public class LogOut {
 
         Thread.sleep(3000);
 
-        WebElement profileHeader = webDriver.findElement(By.xpath(".//a[@title='homework1234']"));
-        new Actions(webDriver).moveToElement(profileHeader).perform();
-
-        WebElement logoutButton = webDriver.findElement(By.cssSelector(".s-header-sub-list-item__link--logout"));
-        logoutButton.click();
-
-        Thread.sleep(3000);
-
         webDriver.quit();
     }
+
 }
