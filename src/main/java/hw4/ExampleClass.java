@@ -2,12 +2,6 @@ package hw4;
 
 public class ExampleClass {
 
-    public static void main(String[] args) throws MyException {
-        ExampleClass exampleClass = new ExampleClass();
-
-        System.out.println(exampleClass.squareTriangle(30,40,50));
-    }
-
     public float squareTriangle(int a, int b, int c) throws MyException {
         if (check(a,b,c)) {
             throw new MyException("Такого треугольника не существует!!!");
