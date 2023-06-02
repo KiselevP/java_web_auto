@@ -44,6 +44,8 @@ public class SettingsSection extends AbstractTest{
         WebElement settingButton = getDriver().findElement(By.xpath(".//a[text()='Настройки']"));
         settingButton.click();
 
+        Thread.sleep(3000);
+
         Assertions.assertEquals("https://www.livejournal.com/settings", getDriver().getCurrentUrl());
     }
 }
