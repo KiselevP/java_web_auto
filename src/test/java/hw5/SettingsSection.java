@@ -33,7 +33,7 @@ public class SettingsSection extends AbstractTest{
         rememberMeButton.click();
 
         WebElement loginButtonWindow =
-                getDriver().findElement(By.xpath(".//button[@class='b-loginform-btn b-loginform-btn--login b-loginform-btn--auth b-loginform-btn--center']"));
+                getDriver().findElement(By.xpath(".//button[@name='action:login'][@tabindex='14']"));
         loginButtonWindow.click();
 
         Thread.sleep(3000);
