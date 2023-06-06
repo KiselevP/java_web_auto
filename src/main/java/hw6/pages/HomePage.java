@@ -1,5 +1,6 @@
 package hw6.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -12,12 +13,14 @@ public class HomePage {
 
     @FindBy(xpath = ".//a[text()='Войти']")
     private WebElement loginButtonHeader;
-    /* @FindBy(css = ".s-header-sub-list-item__link--logout")
-    private WebElement logoutButton; */
+    @FindBy(css = ".s-header-sub-list-item__link--logout")
+    private WebElement logoutButton;
     @FindBy(css = ".s-header-search__input-wrapper > #SearchText")
     private WebElement searchInput;
     @FindBy(xpath = ".//button[@data-tour-text]")
     private WebElement searchButton;
+    @FindBy(xpath = ".//li[@ng-click=\"vm.setActiveTab('tags')\"]")
+    private WebElement tegSections;
     @FindBy(xpath = ".//a[text()='Настройки']")
     private WebElement settingButton;
     @FindBy(xpath = ".//span[contains(text(), 'Русский')]")
@@ -30,7 +33,7 @@ public class HomePage {
     private WebElement elementOne;
     @FindBy(xpath = ".//a[@href='https://www.livejournal.com/category/media_v_zhzh/']")
     private WebElement elementTwo;
-    @FindBy(xpath = ".//a[@href='https://www.livejournal.com/category/vsem-vesna/']")
+    @FindBy(xpath = ".//a[@href='https://www.livejournal.com/category/to-samoe-leto/']")
     private WebElement elementThree;
     @FindBy(xpath = ".//a[@href='https://www.livejournal.com/category/korotko/']")
     private WebElement elementFour;
@@ -46,6 +49,10 @@ public class HomePage {
         return loginButtonHeader;
     }
 
+    public WebElement getLogoutButton() {
+        return logoutButton;
+    }
+
     public WebElement getSearchInput() {
         return searchInput;
     }
@@ -56,6 +63,10 @@ public class HomePage {
 
     public WebElement getSettingButton() {
         return settingButton;
+    }
+
+    public WebElement getTegSections() {
+        return tegSections;
     }
 
     public WebElement getLanguageSwitchButton() {

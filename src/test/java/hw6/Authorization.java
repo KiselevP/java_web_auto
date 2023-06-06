@@ -10,11 +10,13 @@ public class Authorization extends AbstractTest {
     void test(){
         HomePage homePage = new HomePage(getDriver());
         homePage.clickOnElement(homePage.getLoginButtonHeader());
+
         AuthPanel authPanel = new AuthPanel(getDriver());
         authPanel.inputLogin("homework1234")
                 .inputPassword("3h4-xrU-MwX-j3U")
                 .clickOnElement(authPanel.getRememberMeButton())
                 .clickOnElement(authPanel.getLoginButtonWindow());
-        Assertions.assertDoesNotThrow(homePage::getLoginButtonHeader);
+
+        Assertions.assertDoesNotThrow(homePage::getProfileHeader);
     }
 }

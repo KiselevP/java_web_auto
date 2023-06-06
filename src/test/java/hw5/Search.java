@@ -55,6 +55,7 @@ public class Search extends AbstractTest{
 
         Assertions.assertDoesNotThrow(() -> getDriver().findElement(By.xpath(".//a[@href='https://www.livejournal.com/category/novye_lica/']")));
 
+
     }
 
 }

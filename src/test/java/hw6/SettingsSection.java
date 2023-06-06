@@ -1,24 +1,29 @@
 package hw6;
 
 import hw6.pages.HomePage;
+import hw6.panels.AuthPanel;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class SettingsSection extends AbstractTest {
     @Test
-    void test() throws InterruptedException {
+    void test() {
 
-        /* HomePage homePage = new HomePage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+        homePage.clickOnElement(homePage.getLoginButtonHeader());
 
-        homePage
-                .clickOnElement(homePage.getLoginButtonHeader())
-                .inputLogin("homework1234")
+        AuthPanel authPanel = new AuthPanel(getDriver());
+        authPanel.inputLogin("homework1234")
                 .inputPassword("3h4-xrU-MwX-j3U")
-                .clickOnElement(homePage.getRememberMeButton())
-                .clickOnElement(homePage.getLoginButtonWindow())
-                .moveToElement(homePage.getProfileHeader())
-                .clickOnElement(homePage.getSettingButton());
+                .clickOnElement(authPanel.getRememberMeButton())
+                .clickOnElement(authPanel.getLoginButtonWindow());
 
-        Assertions.assertEquals("https://www.livejournal.com/settings", getDriver().getCurrentUrl()); */
+        HomePage homePageAfter = new HomePage(getDriver());
+
+        homePageAfter
+                .moveToElement(homePageAfter.getProfileHeader())
+                .clickOnElement(homePageAfter.getSettingButton());
+
+        Assertions.assertEquals("https://www.livejournal.com/settings", getDriver().getCurrentUrl());
     }
 }
