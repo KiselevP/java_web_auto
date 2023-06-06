@@ -22,8 +22,9 @@ public class Search extends AbstractTest {
         homePage.clickOnElement(homePage.getLoginButtonHeader());
 
         AuthPanel authPanel = new AuthPanel(getDriver());
-        authPanel.inputLogin("homework1234")
-                .inputPassword("3h4-xrU-MwX-j3U")
+        authPanel
+                .inputLogin(authPanel.getLogin())
+                .inputPassword(authPanel.getPassword())
                 .clickOnElement(authPanel.getRememberMeButton())
                 .clickOnElement(authPanel.getLoginButtonWindow());
 

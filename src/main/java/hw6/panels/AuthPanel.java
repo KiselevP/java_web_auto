@@ -19,6 +19,16 @@ public class AuthPanel {
     @FindBy(xpath = ".//label[@class = 'b-loginform-checkbox__control']")
     private WebElement rememberMeButton;
 
+    private String login = "homework1234";
+    private String password = "3h4-xrU-MwX-j3U";
+
+    public String getLogin() {
+        return login;
+    }
+    public String getPassword() {
+        return password;
+    }
+
     public AuthPanel(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
