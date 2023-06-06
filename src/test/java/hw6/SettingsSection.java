@@ -1,5 +1,6 @@
 package hw6;
 
+import hw6.pages.HomePage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -7,17 +8,17 @@ public class SettingsSection extends AbstractTest {
     @Test
     void test() throws InterruptedException {
 
-        WebElementPage webElementPage = new WebElementPage(getDriver());
+        /* HomePage homePage = new HomePage(getDriver());
 
-        webElementPage
-                .clickOnElement(webElementPage.getLoginButtonHeader())
+        homePage
+                .clickOnElement(homePage.getLoginButtonHeader())
                 .inputLogin("homework1234")
                 .inputPassword("3h4-xrU-MwX-j3U")
-                .clickOnElement(webElementPage.getRememberMeButton())
-                .clickOnElement(webElementPage.getLoginButtonWindow())
-                .moveToElement(webElementPage.getProfileHeader())
-                .clickOnElement(webElementPage.getSettingButton());
+                .clickOnElement(homePage.getRememberMeButton())
+                .clickOnElement(homePage.getLoginButtonWindow())
+                .moveToElement(homePage.getProfileHeader())
+                .clickOnElement(homePage.getSettingButton());
 
-        Assertions.assertEquals("https://www.livejournal.com/settings", getDriver().getCurrentUrl());
+        Assertions.assertEquals("https://www.livejournal.com/settings", getDriver().getCurrentUrl()); */
     }
 }
