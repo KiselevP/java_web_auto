@@ -1,5 +1,6 @@
 package hw6;
 
+import hw6.pages.HomePage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -7,13 +8,13 @@ public class LanguageSwitch extends AbstractTest {
 
     @Test
     void test(){
-        WebElementPage webElementPage = new WebElementPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
 
-        webElementPage
-                .moveToElement(webElementPage.getLanguageSwitchButton())
-                .clickOnElement(webElementPage.getLanguageDeutsch());
+        homePage
+                .moveToElement(homePage.getLanguageSwitchButton())
+                .clickOnElement(homePage.getLanguageDeutsch());
 
-        Assertions.assertDoesNotThrow(webElementPage::getLanguageDeutsch);
+        Assertions.assertDoesNotThrow(homePage::getLanguageDeutsch);
     }
 
 }

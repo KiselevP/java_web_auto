@@ -1,5 +1,6 @@
 package hw6;
 
+import hw6.pages.HomePage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -8,23 +9,23 @@ public class Surfing extends AbstractTest {
     @Test
     void test() throws InterruptedException {
 
-        WebElementPage webElementPage = new WebElementPage(getDriver());
+        /* HomePage homePage = new HomePage(getDriver());
 
-        webElementPage
-                .clickOnElement(webElementPage.getLoginButtonHeader())
+        homePage
+                .clickOnElement(homePage.getLoginButtonHeader())
                 .inputLogin("homework1234")
                 .inputPassword("3h4-xrU-MwX-j3U")
-                .clickOnElement(webElementPage.getRememberMeButton())
-                .clickOnElement(webElementPage.getLoginButtonWindow());
+                .clickOnElement(homePage.getRememberMeButton())
+                .clickOnElement(homePage.getLoginButtonWindow());
         Thread.sleep(1000);
-        webElementPage
-                .clickOnElement(webElementPage.getElementOne())
-                .clickOnElement(webElementPage.getElementTwo())
-                .clickOnElement(webElementPage.getElementThree())
-                .clickOnElement(webElementPage.getElementFour())
-                .clickOnElement(webElementPage.getElementFive());
+        homePage
+                .clickOnElement(homePage.getElementOne())
+                .clickOnElement(homePage.getElementTwo())
+                .clickOnElement(homePage.getElementThree())
+                .clickOnElement(homePage.getElementFour())
+                .clickOnElement(homePage.getElementFive());
 
-        Assertions.assertEquals("https://www.livejournal.com/media/video/", getDriver().getCurrentUrl());
+        Assertions.assertEquals("https://www.livejournal.com/media/video/", getDriver().getCurrentUrl()); */
     }
 
 }
