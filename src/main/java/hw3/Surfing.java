@@ -57,7 +57,7 @@ public static void siteSurfing() throws InterruptedException {
 
     Thread.sleep(1000);
 
-    WebElement element3 = webDriver.findElement(By.xpath(".//a[@href='https://www.livejournal.com/category/vsem-vesna/']"));
+    WebElement element3 = webDriver.findElement(By.xpath(".//a[@href='https://www.livejournal.com/category/to-samoe-leto/']"));
     element3.click();
 
     Thread.sleep(1000);

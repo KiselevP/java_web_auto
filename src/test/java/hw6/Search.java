@@ -18,34 +18,34 @@ public class Search extends AbstractTest {
     @Test
     void test() {
 
-        HomePage homePage = new HomePage(getDriver());
+        HomePage homePage = new HomePage(getEventDriver());
         homePage.clickOnElement(homePage.getLoginButtonHeader());
 
-        AuthPanel authPanel = new AuthPanel(getDriver());
+        AuthPanel authPanel = new AuthPanel(getEventDriver());
         authPanel
                 .inputLogin(authPanel.getLogin())
                 .inputPassword(authPanel.getPassword())
                 .clickOnElement(authPanel.getRememberMeButton())
                 .clickOnElement(authPanel.getLoginButtonWindow());
 
-        new WebDriverWait(getDriver(), Duration.ofSeconds(1))
+        new WebDriverWait(getEventDriver(), Duration.ofSeconds(1))
                 .until(
                         ExpectedConditions.refreshed(
                                 ExpectedConditions.stalenessOf(
-                                        getDriver().findElement(
+                                        getEventDriver().findElement(
                                                 By.xpath(".//button[@data-tour-text]")))));
 
-        HomePage homePageAfter = new HomePage(getDriver());
+        HomePage homePageAfter = new HomePage(getEventDriver());
         homePageAfter
                 .clickOnElement(homePageAfter.getSearchButton())
                 .inputSearch("искусственный интеллект")
                 .clickOnElement(homePageAfter.getSearchButton());
 
-        List<String> winHandle = new ArrayList<>(getDriver().getWindowHandles());
-        getDriver().switchTo().window(winHandle.get(1));
+        List<String> winHandle = new ArrayList<>(getEventDriver().getWindowHandles());
+        getEventDriver().switchTo().window(winHandle.get(1));
 
 
-        HomePage searchPage = new HomePage(getDriver());
+        HomePage searchPage = new HomePage(getEventDriver());
         searchPage
                 .clickOnElement(searchPage.getTegSections());
 

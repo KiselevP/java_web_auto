@@ -8,7 +8,7 @@ public class LanguageSwitch extends AbstractTest {
 
     @Test
     void test(){
-        HomePage homePage = new HomePage(getDriver());
+        HomePage homePage = new HomePage(getEventDriver());
 
         homePage
                 .moveToElement(homePage.getLanguageSwitchButton())

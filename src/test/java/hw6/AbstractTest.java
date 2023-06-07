@@ -1,21 +1,19 @@
 package hw6;
 
+import hw7.MyWebDriverEventListener;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
-import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+import java.time.Duration;
 
 public abstract class AbstractTest {
 
-    private static WebDriver driver;
-
-    private static long time = 10L;
+    static EventFiringWebDriver eventDriver;
 
     @BeforeAll
     static void init() {
@@ -23,24 +21,27 @@ public abstract class AbstractTest {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
-        //options.addArguments("--headless");
+//        options.addArguments("--headless");
         options.addArguments("start-maximized");
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
+        options.addArguments("--remote-allow-origins=*");
+        options.setPageLoadTimeout(Duration.ofSeconds(10));
+        eventDriver = new EventFiringWebDriver(new ChromeDriver(options));
+        eventDriver.register(new MyWebDriverEventListener());
+        eventDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @BeforeEach
     void goTo() {
-        Assertions.assertDoesNotThrow(() -> driver.navigate().to("https://www.livejournal.com"),
+        Assertions.assertDoesNotThrow(() -> eventDriver.navigate().to("https://www.livejournal.com"),
                 "Страница не доступна");
     }
 
     @AfterAll
     static void close() {
-//        driver.quit();
+        eventDriver.quit();
     }
 
-    public static WebDriver getDriver() {
-        return driver;
+    public static EventFiringWebDriver getEventDriver() {
+        return eventDriver;
     }
 }

@@ -8,10 +8,10 @@ import org.junit.jupiter.api.Test;
 public class Authorization extends AbstractTest {
     @Test
     void test(){
-        HomePage homePage = new HomePage(getDriver());
+        HomePage homePage = new HomePage(getEventDriver());
         homePage.clickOnElement(homePage.getLoginButtonHeader());
 
-        AuthPanel authPanel = new AuthPanel(getDriver());
+        AuthPanel authPanel = new AuthPanel(getEventDriver());
         authPanel
                 .inputLogin(authPanel.getLogin())
                 .inputPassword(authPanel.getPassword())
